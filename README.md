@@ -40,7 +40,7 @@ python3 "$CODEX_HOME/skills/artifacts/scripts/artifacts_bootstrap_env.py"
 ### 1) Initialize a request workspace
 
 ```bash
-python3 "$CODEX_HOME/skills/artifacts/scripts/artifacts_init.py" --request "Describe the task request here"
+.artifacts/.venv/bin/python "$CODEX_HOME/skills/artifacts/scripts/artifacts_init.py" --request "Describe the task request here"
 ```
 
 This creates:
@@ -76,4 +76,3 @@ The skill itself lives in `artifacts/`:
 The per-repo byproducts created by using the skill live in the *target repository* under:
 
 - `.artifacts/`
-

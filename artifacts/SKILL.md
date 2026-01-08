@@ -9,10 +9,16 @@ description: Create and manage repo-local work artifacts for a user “task requ
 
 Goal: leave a durable, linkable trace of work in `.artifacts/artifacts/{request_id}/`, and answer future questions by querying the `.artifacts/` ChromaDB index (retained for 7 days).
 
+### 0) Bootstrap the required environment under `.artifacts/` (always)
+
+1. Create `.artifacts/.venv/` and install `chromadb` there:
+   - `python3 "$CODEX_HOME/skills/artifacts/scripts/artifacts_bootstrap_env.py"`
+2. After bootstrap, run all other commands using `.artifacts/.venv/bin/python` (required).
+
 ### 1) Initialize artifacts (always)
 
 1. Run the initializer script (from repo root or anywhere inside the repo):
-   - `python3 "$CODEX_HOME/skills/artifacts/scripts/artifacts_init.py" --request "<user request>"`
+   - `.artifacts/.venv/bin/python "$CODEX_HOME/skills/artifacts/scripts/artifacts_init.py" --request "<user request>"`
 2. The script prints paths for:
    - `.artifacts/artifacts/{request_id}/plan.md`
    - `.artifacts/artifacts/{request_id}/todo.md`
